@@ -2049,6 +2049,8 @@ void dwc_otg_core_dev_init(dwc_otg_core_if_t * core_if)
 			core_if->dev_if->vbus_on = 1;
 		}
 	}
+
+	dwc_otg_device_soft_connect(core_if);
 }
 
 /**
