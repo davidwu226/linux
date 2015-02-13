@@ -2998,10 +2998,10 @@ struct fsg_module_parameters {
 	bool		removable[FSG_MAX_LUNS];
 	bool		cdrom[FSG_MAX_LUNS];
 	bool		nofua[FSG_MAX_LUNS];
-	int		force_sync[FSG_MAX_LUNS];
+	bool		force_sync[FSG_MAX_LUNS];
 
 	unsigned int	file_count, ro_count, removable_count, cdrom_count;
-	unsigned int	nofua_count;
+        unsigned int	nofua_count, force_sync_count;
 	unsigned int	luns;	/* nluns */
 	bool		stall;	/* can_stall */
 };
@@ -3031,7 +3031,7 @@ struct fsg_module_parameters {
 	_FSG_MODULE_PARAM(prefix, params, luns, uint,			\
 			  "number of LUNs");				\
 	_FSG_MODULE_PARAM(prefix, params, stall, bool,			\
-			  "false to prevent bulk stalls")				\
+			  "false to prevent bulk stalls");     		\
 	_FSG_MODULE_PARAM_ARRAY(prefix, params, force_sync, bool,	\
 				"true to force sync when do write");
 static void
