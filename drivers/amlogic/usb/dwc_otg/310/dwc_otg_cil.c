@@ -2050,6 +2050,8 @@ void dwc_otg_core_dev_init(dwc_otg_core_if_t * core_if)
 		}
 	}
 
+	dwc_otg_device_soft_disconnect(core_if);
+	udelay(20);
 	dwc_otg_device_soft_connect(core_if);
 }
 
